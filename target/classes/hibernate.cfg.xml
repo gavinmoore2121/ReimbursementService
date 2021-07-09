@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database Connection Settings -->
+		<property name="hibernate.connection.url"></property>
+		<property name="hibernate.connection.username"></property>
+		<property name="hibernate.connection.password"></property>
+
+		<!-- SQL Dialect -->
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
+
+		<!-- show all generate SQL query -->
+		<property name="show_sql">false</property>
+
+		<!-- create necessary tables. change to validate when ready to deploy. -->
+		<property name="hbm2ddl.auto">update</property>
+
+		<!-- Mention here all the model classes along with their package name -->
+		<mapping class="com.revature.entity.definitions.Employee" />
+		<mapping class="com.revature.entity.definitions.Associate" />
+		<mapping class="com.revature.entity.definitions.Manager" />
+		<mapping class="com.revature.entity.definitions.Reimbursement" />
+	</session-factory>
+</hibernate-configuration>

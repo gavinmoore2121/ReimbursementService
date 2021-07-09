@@ -1,0 +1,47 @@
+# Define root logger: Default LoggerLevel, loggerName1, loggerName2, etc
+log4j.rootLogger=ALL, ERRORS, RECORDS, CONSOLE
+
+# Define file appender
+log4j.appender.RECORDS=org.apache.log4j.FileAppender
+
+# Set file name
+log4j.appender.RECORDS.File=src/logs/traceLog.out
+
+# Set immediate flush to true (default value)
+log4j.appender.RECORDS.ImmediateFlush=true
+
+# Set threshold to debug mode
+log4j.appender.RECORDS.Threshold=all
+
+# Set the append to false, so the file overwrites itself.
+log4j.appender.RECORDS.Append=false
+
+# Define the layout for the file appender
+log4j.appender.RECORDS.layout=org.apache.log4j.PatternLayout
+log4j.appender.RECORDS.layout.conversionPattern=%d %m%n
+
+# Define the error log appender
+# Define file appender
+log4j.appender.ERRORS=org.apache.log4j.FileAppender
+
+# Set file name
+log4j.appender.ERRORS.File=src/logs/errorLog.out
+
+# Set immediate flush to true (default value)
+log4j.appender.ERRORS.ImmediateFlush=true
+
+# Set threshold to debug mode
+log4j.appender.ERRORS.Threshold=all
+
+# Set the append to false, so the file overwrites itself.
+log4j.appender.ERRORS.Append=false
+
+# Define the layout for the file appender
+log4j.appender.ERRORS.layout=org.apache.log4j.PatternLayout
+log4j.appender.ERRORS.layout.conversionPattern=%d %m%n
+
+
+# Define console appender
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.conversionPattern=%m%n
