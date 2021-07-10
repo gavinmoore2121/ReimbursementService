@@ -56,9 +56,10 @@
             <artifactId>h2</artifactId>
             <version>1.4.200</version>
         </dependency>
-    </dependencies>
 
+    </dependencies>
     <build>
+        <finalName>ReimbursementService</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

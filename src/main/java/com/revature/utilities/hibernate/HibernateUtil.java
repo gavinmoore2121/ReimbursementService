@@ -65,7 +65,7 @@ public class HibernateUtil {
 	 * @throws FileNotFoundException when DatabaseDetails.info is not correctly located.
 	 */
 	private static BufferedReader getDatabaseDetailsFileReader() throws FileNotFoundException {
-		final String FILENAME = "src/main/resources/DatabaseDetails.info";
+		final String FILENAME = "DatabaseDetails.info";
 		
 		File accountDetails = new File(FILENAME);
 		

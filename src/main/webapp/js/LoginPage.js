@@ -14,7 +14,7 @@ document.querySelector('#login').addEventListener('submit', async function (even
     }
 
     // Send credentials to servlet for validation
-    let response = await fetch("http://localhost:8080/ReimbursementService_war_exploded/SubmitLogin", {
+    let response = await fetch("http://localhost:8080/ReimbursementService/SubmitLogin", {
         method: 'POST',
         headers: {
             'Content-Type': 'text/plain'
