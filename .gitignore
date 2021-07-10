@@ -1,2 +1,5 @@
-DatabaseDetails.info
+src/main/resourcesDatabaseDetails.info
 log4j.info
+src/main/resources/hibernate.cfg.xml
+target
+out

@@ -40,8 +40,6 @@ public class HibernateUtil {
 		// Configure base details from hibernate.cfg.xml
 		StandardServiceRegistryBuilder registryBuilder = new StandardServiceRegistryBuilder().configure();
 
-		System.out.println("Working Directory = " + System.getProperty("user.dir"));
-
 		// If file exists, configure URL, username, and password from DatabaseDetails.info.
 		try (BufferedReader databaseDetailReader = getDatabaseDetailsFileReader()) {
 			String url = databaseDetailReader.readLine();
@@ -51,18 +49,14 @@ public class HibernateUtil {
 			registryBuilder.applySetting("hibernate.connection.url", url);
 			registryBuilder.applySetting("hibernate.connection.username", username);
 			registryBuilder.applySetting("hibernate.connection.password", password);
-		} catch (FileNotFoundException e) {
-			/* 
-			 * Indicates DatabaseDetails.info file was not read. Configure account details
+		} catch (IOException e) {
+			/*
+			 * Indicates DatabaseDetails.info file was not read or improperly formatted. Configure account details
 			 * from hibernate.cfg.xml if possible.
 			 */
-			e.getMessage();
-		} catch (IOException e) {
-			// Indicates DatabaseDetails.info file is not properly formatted or otherwise
-			// unreadable.
 			e.printStackTrace();
-		} 
-		
+		}
+
 		// Complete SessionFactory instantiation.
 		MetadataSources sources = new MetadataSources(registryBuilder.build());
 		Metadata metadata = sources.getMetadataBuilder().build();
@@ -75,7 +69,7 @@ public class HibernateUtil {
 	 * @throws FileNotFoundException when DatabaseDetails.info is not correctly located.
 	 */
 	private static BufferedReader getDatabaseDetailsFileReader() throws FileNotFoundException {
-		final String FILENAME = "src/main/resources/DatabaseDetails.info";
+		final String FILENAME = "DatabaseDetails.info";
 		
 		File accountDetails = new File(FILENAME);
 		
