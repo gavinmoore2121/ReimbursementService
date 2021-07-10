@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="ReimbursementService:war">
+  <artifact type="war" build-on-make="true" name="ReimbursementService:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <properties id="maven-jee-properties">
       <options>

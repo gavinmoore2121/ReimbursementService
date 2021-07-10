@@ -1,15 +1,11 @@
 package com.revature.utilities.hibernate;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-import org.hibernate.*;
+import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
+import java.io.*;
 
 /**
  * A collection of utilities for using the Hibernate API. Contains methods to easily 
@@ -50,13 +46,13 @@ public class HibernateUtil {
 			registryBuilder.applySetting("hibernate.connection.username", username);
 			registryBuilder.applySetting("hibernate.connection.password", password);
 		} catch (IOException e) {
-			/*
-			 * Indicates DatabaseDetails.info file was not read or improperly formatted. Configure account details
+			/* 
+			 * Indicates DatabaseDetails.info file was not read or is improperly formatted. Configure account details
 			 * from hibernate.cfg.xml if possible.
 			 */
 			e.printStackTrace();
-		}
-
+		} 
+		
 		// Complete SessionFactory instantiation.
 		MetadataSources sources = new MetadataSources(registryBuilder.build());
 		Metadata metadata = sources.getMetadataBuilder().build();
@@ -69,7 +65,7 @@ public class HibernateUtil {
 	 * @throws FileNotFoundException when DatabaseDetails.info is not correctly located.
 	 */
 	private static BufferedReader getDatabaseDetailsFileReader() throws FileNotFoundException {
-		final String FILENAME = "DatabaseDetails.info";
+		final String FILENAME = "src/main/resources/DatabaseDetails.info";
 		
 		File accountDetails = new File(FILENAME);
 		

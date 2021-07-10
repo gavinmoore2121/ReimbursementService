@@ -6,9 +6,9 @@
 <hibernate-configuration>
 	<session-factory>
 		<!-- Database Connection Settings -->
-		<property name="hibernate.connection.url">jdbc:oracle:thin:@database-1.c4jlsnvzskpp.us-east-2.rds.amazonaws.com:1521:P1DB</property>
-		<property name="hibernate.connection.username">admin</property>
-		<property name="hibernate.connection.password">AWSSn0wboard21!</property>
+		<property name="hibernate.connection.url"></property>
+		<property name="hibernate.connection.username"></property>
+		<property name="hibernate.connection.password"></property>
 
 		<!-- SQL Dialect -->
 		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
