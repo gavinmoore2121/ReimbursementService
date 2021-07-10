@@ -40,6 +40,8 @@ public class HibernateUtil {
 		// Configure base details from hibernate.cfg.xml
 		StandardServiceRegistryBuilder registryBuilder = new StandardServiceRegistryBuilder().configure();
 
+		System.out.println("Working Directory = " + System.getProperty("user.dir"));
+
 		// If file exists, configure URL, username, and password from DatabaseDetails.info.
 		try (BufferedReader databaseDetailReader = getDatabaseDetailsFileReader()) {
 			String url = databaseDetailReader.readLine();
