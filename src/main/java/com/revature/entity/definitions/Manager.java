@@ -25,7 +25,6 @@ public class Manager extends Employee {
 	/**
 	 * Parameterized constructor.
 	 * @param employeeId
-	 * @param username
 	 * @param empPassword
 	 * @param empEmail
 	 * @param empFirstName
@@ -56,6 +55,18 @@ public class Manager extends Employee {
 				+ ", getEmpAddress()=" + getEmpAddress() + ", getEmpBankNum()=" + getEmpBankNum()
 				+ ", getEmpYearlySalary()=" + getEmpYearlySalary() + ", getEmpHireDate()=" + getEmpHireDate()
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+	}
+
+	/**
+	 * Convert the manager to a Json file as a String.
+	 *
+	 * Get the manager's JSON text as an employee, and replace the "employee" text with "manager".
+	 *
+	 * @return The manager definition as a Json.
+	 */
+	@Override
+	public String toJson() {
+		return super.toJson().replace("\"employee\"", "\"manager\"");
 	}
 
 

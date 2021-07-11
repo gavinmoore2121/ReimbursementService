@@ -93,16 +93,17 @@ public class Employee {
 	 */
 	public String toJson() {
 		return "{ "
-				+ "\"userId\" : " + employeeId + ","
-				+ "\"userName\" :" + "\"" + empEmail + "\","
-				+ "\"password\" :" + "\"" + empPassword + "\","
-				+ "\"firstName\" :" + "\"" + empFirstName + "\","
-				+ "\"middleInit\" :" + "\"" + empMiddleInitial + "\","
-				+ "\"lastName\" :" + "\"" + empLastName + "\","
-				+ "\"address\" :" + "\"" + empAddress + "\","
-				+ "\"empBankNum\" :"  + empBankNum + ","
-				+ "\"empYearlySalary\" : " + empYearlySalary + ","
-				+ "\"empHireDate\" :" + "\"" + empHireDate + "\""
+				+ "\"userId\" : " + employeeId + ", "
+				+ "\"userName\" : \"" + empEmail + "\", "
+				+ "\"password\" : \"" + empPassword + "\", "
+				+ "\"firstName\" : \"" + empFirstName + "\", "
+				+ "\"middleInit\" : \"" + empMiddleInitial + "\", "
+				+ "\"lastName\" : \"" + empLastName + "\", "
+				+ "\"address\" : \"" + empAddress + "\", "
+				+ "\"empBankNum\" : "  + empBankNum + ", "
+				+ "\"empYearlySalary\" : " + empYearlySalary + ", "
+				+ "\"empHireDate\" : \"" + empHireDate + "\", "
+				+ "\"employmentClass\" : \"employee\""
 				+ "}";
 	}
 

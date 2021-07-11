@@ -58,24 +58,28 @@ public class ERSService {
 	 * @return 1 to indicate general employee, 2 to indicate manager, 3 to indicate
 	 * 		 non-existing username, 4 to indicate incorrect password.
 	 */
-	public int verifyLogin(String username, String password) {
+	public String verifyLogin(String username, String password) {
+		// Find employee who's username matches the input.
 		Employee user = empDao.getEntity(username);
+
+		// If no employee, return 3.
 		if (user == null) {
 			//log.trace("User entered invalid user name.");
-			return 3;
+			return "invalid employee";
 		}
+		// If password matches the user ID, determine manager or employee, then return the respective num.
 		else if (user.getEmpPassword().equals(password)) {
 			if (user.getClass().equals(Manager.class)) {
 				//log.trace("Manager " + username + " has logged in.");
-				return 2;
+				return user.toJson();
 			}
 			else if (user.getClass().equals(Employee.class)) {
 				//log.trace("Employee " + username + " has logged in.");
-				return 1;
+				return user.toJson();
 			}
 		}
-		//log.trace("User has entered an incorrect password.");
-		return 3;
+		// If password doesn't match, return 4.
+		return "invalid password";
 	}
 	
 	/**

@@ -16,23 +16,14 @@ public class Login extends HttpServlet {
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// Read user input
 		BufferedReader reader = req.getReader();
-		
-		resp.setContentType("text/plain");
-		PrintWriter out = resp.getWriter();
 		String username = reader.readLine();
 		String password = reader.readLine();
-		out.println(username + " " + password);
 
-		switch(ERSService.getERSService().verifyLogin(username, password)) {
-			case 1:
-				out.println("localhost:8080/EmployeeReimbursementService/EmployeeHome"); break;// Save cookie of user in JavaScript
-			case 2:
-				out.println("localhost:8080/EmployeeReimbursementService/ManagerHome"); break;
-			case 3:
-				out.println("localhost:8080/EmployeeReimbursementService/LoginInvalidUsername"); break;
-			case 4:
-				out.println("localhost:8080/EmployeeReimbursementService/LoginInvalidPassword"); break;
-		}
+		// Check output, validate.
+		resp.setContentType("text/plain");
+		PrintWriter out = resp.getWriter();
+		out.println(ERSService.getERSService().verifyLogin(username, password));
 	}
 }

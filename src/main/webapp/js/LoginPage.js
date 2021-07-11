@@ -23,4 +23,14 @@ document.querySelector('#login').addEventListener('submit', async function (even
     });
     let result = await response.text();
     console.log(result);
+    if (result === 'invalid employee') {
+        document.querySelector('#login-error-box').innerHTML = "Username does not exist.";
+    }
+    else if (result === 'invalid password') {
+        document.querySelector('#login-error-box').innerHTML = "Incorrect password. Contact HR to reset.";
+    }
+    let employee = JSON.parse(result);
+    console.log(employee);
+
+
 });
