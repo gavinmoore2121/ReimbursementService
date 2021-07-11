@@ -7,21 +7,43 @@
         <welcome-file>LoginPage.html</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    
     <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>com.revature.servlets.Login</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>Hello</servlet-name>
-        <servlet-class>com.revature.servlets.HelloServlet</servlet-class>
-    </servlet>
-
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/SubmitLogin</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Hello</servlet-name>
+        <servlet-class>com.revature.servlets.HelloServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Hello</servlet-name>
         <url-pattern>/hello-servlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>EmployeeHome</servlet-name>
+        <jsp-file>/EmployeeHome.html</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeHome</servlet-name>
+        <url-pattern>/EmployeeHome</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ManagerHome</servlet-name>
+        <jsp-file>/ManagerHome.html</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ManagerHome</servlet-name>
+        <url-pattern>/ManagerHome</url-pattern>
+    </servlet-mapping>
+
+    
+    
 </web-app>
