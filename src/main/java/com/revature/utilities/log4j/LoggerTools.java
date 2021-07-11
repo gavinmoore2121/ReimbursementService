@@ -1,12 +1,14 @@
 package com.revature.utilities.log4j;
 
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.log4j.varia.LevelRangeFilter;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import org.apache.log4j.*;
-import org.apache.log4j.varia.LevelRangeFilter;
 
 /**
  * Class of convenience tools related to the Log4J API.

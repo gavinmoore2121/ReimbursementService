@@ -2,3 +2,4 @@ DatabaseDetails.info
 log4j.info
 target
 out
+src/main/resources/hibernate.cfg.xml

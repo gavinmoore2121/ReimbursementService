@@ -1,11 +1,11 @@
 package com.revature.daos;
 
-import java.util.List;
-
 import com.revature.entity.definitions.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
+import java.util.List;
 
 public class EmployeeDao implements Dao<Employee> {
 	
@@ -35,7 +35,7 @@ public class EmployeeDao implements Dao<Employee> {
 	 */
 	public Employee getEntity(String email) {
 		Session session = sessionFactory.openSession();
-		Employee emp = session.byNaturalId(Employee.class).using("v_email", email).load();
+		Employee emp = session.byNaturalId(Employee.class).using("empEmail", email).load();
 		session.close();
 		return emp;
 	}

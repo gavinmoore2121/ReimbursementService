@@ -7,11 +7,10 @@ import com.revature.entity.definitions.Manager;
 import com.revature.entity.definitions.Reimbursement;
 import com.revature.utilities.hibernate.HibernateUtil;
 import com.revature.utilities.log4j.LoggerTools;
+import org.apache.log4j.Logger;
 
 import java.io.FileNotFoundException;
 import java.util.List;
-
-import org.apache.log4j.Logger;
 
 /**
  * Facade class for the various business operations necessary for the reimbursement system.
@@ -29,12 +28,12 @@ public class ERSService {
 		empDao = new EmployeeDao(HibernateUtil.getSessionFactory());
 		
 		// Configure logger
-		try {
-			log = LoggerTools.getAndConfigureLogger(ERSService.class.getName());
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		log.trace("Employee Reimbursement Service and logger instantiated.");
+		//try {
+		//	log = LoggerTools.getAndConfigureLogger(ERSService.class.getName());
+		//} catch (FileNotFoundException e) {
+		//	e.printStackTrace();
+		//}
+		//log.trace("Employee Reimbursement Service and logger instantiated.");
 	}
 	
 	/* Remove comment to run as a Java application and add sample data to the db.
@@ -62,20 +61,20 @@ public class ERSService {
 	public int verifyLogin(String username, String password) {
 		Employee user = empDao.getEntity(username);
 		if (user == null) {
-			log.trace("User entered invalid user name.");
+			//log.trace("User entered invalid user name.");
 			return 3;
 		}
 		else if (user.getEmpPassword().equals(password)) {
 			if (user.getClass().equals(Manager.class)) {
-				log.trace("Manager " + username + " has logged in.");
+				//log.trace("Manager " + username + " has logged in.");
 				return 2;
 			}
 			else if (user.getClass().equals(Employee.class)) {
-				log.trace("Employee " + username + " has logged in.");
+				//log.trace("Employee " + username + " has logged in.");
 				return 1;
 			}
 		}
-		log.trace("User has entered an incorrect password.");
+		//log.trace("User has entered an incorrect password.");
 		return 3;
 	}
 	
@@ -113,7 +112,7 @@ public class ERSService {
 		empDao.save(testMng);
 		Reimbursement reim2 = new Reimbursement(2, testEmp2, 150.0, "Test request reason2.", "approved", "08-JAN-2001", testMng, "09-JAN-2001");
 		reimDao.save(reim2);
-		log.trace("Sample data added.");
+		//log.trace("Sample data added.");
 	}
 	
 	/**

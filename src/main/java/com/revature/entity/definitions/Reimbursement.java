@@ -1,8 +1,8 @@
 package com.revature.entity.definitions;
 
-import javax.persistence.*;
-
 import org.hibernate.annotations.Check;
+
+import javax.persistence.*;
 
 /**
  * Class to define reimbursements, both filled and pending.

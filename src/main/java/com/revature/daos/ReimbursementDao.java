@@ -1,17 +1,16 @@
 package com.revature.daos;
 
-import java.util.List;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
 import com.revature.entity.definitions.Employee;
 import com.revature.entity.definitions.Manager;
 import com.revature.entity.definitions.Reimbursement;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.List;
 
 public class ReimbursementDao implements Dao<Reimbursement> {
 	

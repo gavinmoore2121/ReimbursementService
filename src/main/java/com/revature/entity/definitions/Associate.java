@@ -1,6 +1,7 @@
 package com.revature.entity.definitions;
 
-import javax.persistence.*;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 /**
  * Class to define the Associate table. Deprecated.

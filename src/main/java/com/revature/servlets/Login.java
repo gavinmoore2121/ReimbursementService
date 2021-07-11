@@ -26,13 +26,13 @@ public class Login extends HttpServlet {
 
 		switch(ERSService.getERSService().verifyLogin(username, password)) {
 			case 1:
-				out.println("localhost:8080/EmployeeReimbursementService/EmployeeHome"); // Save cookie of user in JavaScript
+				out.println("localhost:8080/EmployeeReimbursementService/EmployeeHome"); break;// Save cookie of user in JavaScript
 			case 2:
-				out.println("localhost:8080/EmployeeReimbursementService/ManagerHome");
+				out.println("localhost:8080/EmployeeReimbursementService/ManagerHome"); break;
 			case 3:
-				out.println("localhost:8080/EmployeeReimbursementService/LoginInvalidUsername");
+				out.println("localhost:8080/EmployeeReimbursementService/LoginInvalidUsername"); break;
 			case 4:
-				out.println("localhost:8080/EmployeeReimbursementService/LoginInvalidPassword");
+				out.println("localhost:8080/EmployeeReimbursementService/LoginInvalidPassword"); break;
 		}
 	}
 }

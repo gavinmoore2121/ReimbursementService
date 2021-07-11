@@ -18,7 +18,7 @@ public class Employee {
 	@Column(name= "n_employee_id")
 	private int employeeId;
 	@NaturalId
-	@Column(name= "v_email")
+	@Column(name= "v_email", unique = true)
 	private String empEmail;
 	@Column(name= "v_password")
 	private String empPassword;
@@ -47,12 +47,10 @@ public class Employee {
 
 
 	/**
-	 * Parameterized constructor.
-	 * 
+	 *
 	 * @param employeeId
-	 * @param username
-	 * @param empPassword
 	 * @param empEmail
+	 * @param empPassword
 	 * @param empFirstName
 	 * @param empMiddleInitial
 	 * @param empLastName
