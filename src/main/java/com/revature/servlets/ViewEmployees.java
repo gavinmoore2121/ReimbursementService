@@ -21,9 +21,9 @@ public class ViewEmployees extends HttpServlet {
         StringBuilder empJSON = new StringBuilder();
         empJSON.append("{ \"employees\" : [ ");
         resp.setContentType("text/JSON");
-        String empID = reader.readLine();
+        String empUsername = reader.readLine();
         // If no input, return list of all employees.
-        if (empID == null) {
+        if (empUsername == null) {
              List<Employee> empList = ERSService.getERSService().getAllEmployees();
              for (Employee emp: empList) {
                  empJSON.append(emp.toJson());
@@ -36,7 +36,7 @@ public class ViewEmployees extends HttpServlet {
         }
         // If Employee ID is given, return the employee.
         else {
-            empJSON.append(ERSService.getERSService().getEmployee(Integer.parseInt(empID)).toJson());
+            empJSON.append(ERSService.getERSService().getEmployee(Integer.parseInt(empUsername)).toJson());
             resp.getWriter().println(empJSON);
         }
     }

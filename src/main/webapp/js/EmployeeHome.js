@@ -1,8 +1,48 @@
 // Create my-reimbursements button
 document.querySelector('#my-reimbursements').addEventListener('click', async function (event) {
     document.querySelector('#dialog').innerHTML = ""
-    window.location.href = "..";
+    // Get list of reimbursements from server
+    let response = await fetch("http://localhost:8080/ReimbursementService/ViewEmployeeReimbursements", {
+        method: 'POST',
+        headers:  {
+            'Content-Type': 'text/plain'
+        },
+        body: window.getCookie('username')
+    });
+    let result = await response.text();
+    let reims = JSON.parse(result);
+
+    // Select display table
+    let t = document.querySelector("#display-table");
+
+    // Delete old rows
+    t.innerHTML = "";
+
+    // Create head of table
+    let row = t.insertRow(-1);
+    row.insertCell(-1).appendChild(document.createTextNode("ReimbursementID"));
+    row.insertCell(-1).appendChild(document.createTextNode("Requested By"));
+    row.insertCell(-1).appendChild(document.createTextNode("Amount Requested"));
+    row.insertCell(-1).appendChild(document.createTextNode("Reason For Request"));
+    row.insertCell(-1).appendChild(document.createTextNode("Date Requested"));
+    row.insertCell(-1).appendChild(document.createTextNode("Approval Status"));
+    row.insertCell(-1).appendChild(document.createTextNode("Reviewed By"));
+    row.insertCell(-1).appendChild(document.createTextNode("Date Reviewed"));
+
+    // Create a row for each reimbursement and fill it.
+    reims['reimbursements'].forEach(reim => {
+        let row = t.insertRow(-1);
+        row.insertCell(-1).appendChild(document.createTextNode(reim['reimbursementID']));
+        row.insertCell(-1).appendChild(document.createTextNode(reim['requestedByEmp']));
+        row.insertCell(-1).appendChild(document.createTextNode(reim['amountRequested']));
+        row.insertCell(-1).appendChild(document.createTextNode(reim['requestedFor']))
+        row.insertCell(-1).appendChild(document.createTextNode(reim['dateRequested']));
+        row.insertCell(-1).appendChild(document.createTextNode(reim['approvalStatus']));
+        row.insertCell(-1).appendChild(document.createTextNode(reim['reviewedBy']));
+        row.insertCell(-1).appendChild(document.createTextNode(reim['dateReviewed']));
+    });
 });
+
 // Create new-reimbursements button
 document.querySelector('#new-reimbursement').addEventListener('click', async function (event) {
     document.querySelector('#dialog').innerHTML = ""
@@ -68,7 +108,6 @@ document.querySelector('#new-reimbursement').addEventListener('click', async fun
 // Create view-account button
 document.querySelector('#view-account').addEventListener('click', async function (event) {
     document.querySelector('#dialog').innerHTML = ""
-    window.location.href = "..";
 });
 // Create logout button
 document.querySelector('#logout').addEventListener('click', async function (event) {

@@ -54,6 +54,15 @@
     </servlet-mapping>
     
     <servlet>
+        <servlet-name>ViewEmployeeReimbursements</servlet-name>
+        <servlet-class>com.revature.servlets.ViewEmployeeReimbursements</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewEmployeeReimbursements</servlet-name>
+        <url-pattern>/ViewEmployeeReimbursements</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
         <servlet-name>ViewReimbursements</servlet-name>
         <servlet-class>com.revature.servlets.ViewReimbursements</servlet-class>
     </servlet>
