@@ -107,7 +107,40 @@ document.querySelector('#new-reimbursement').addEventListener('click', async fun
 
 // Create view-account button
 document.querySelector('#view-account').addEventListener('click', async function (event) {
-    document.querySelector('#dialog').innerHTML = ""
+    let response = await fetch("http://localhost:8080/ReimbursementService/ViewEmployees", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'text/plain'
+        },
+        body: window.getCookie('username'),
+    });
+    let result = await response.text();
+    let emps = JSON.parse(result);
+
+    let t = document.querySelector("#display-table");
+
+    // Delete old rows
+    t.innerHTML = "";
+
+    // Create head of table
+    let row = t.insertRow(-1);
+    row.insertCell(-1).appendChild(document.createTextNode("First Name"));
+    row.insertCell(-1).appendChild(document.createTextNode("Middle Initial"));
+    row.insertCell(-1).appendChild(document.createTextNode("Last Name"));
+    row.insertCell(-1).appendChild(document.createTextNode("Email"));
+    row.insertCell(-1).appendChild(document.createTextNode("Position"));
+    row.insertCell(-1).appendChild(document.createTextNode("Salary"));
+
+    emps['employees'].forEach(emp => {
+        let row = t.insertRow(-1);
+        row.insertCell(-1).appendChild(document.createTextNode(emp['firstName']));
+        row.insertCell(-1).appendChild(document.createTextNode(emp['middleInit']));
+        row.insertCell(-1).appendChild(document.createTextNode(emp['lastName']));
+        row.insertCell(-1).appendChild(document.createTextNode(emp['userName']));
+        row.insertCell(-1).appendChild(document.createTextNode(emp['employmentClass']));
+        row.insertCell(-1).appendChild(document.createTextNode(emp['empYearlySalary']));
+
+    });
 });
 // Create logout button
 document.querySelector('#logout').addEventListener('click', async function (event) {
