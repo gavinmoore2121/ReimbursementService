@@ -75,16 +75,25 @@ public class Reimbursement {
 	public String toJson() {
 		return "{ "
 				+ "\"reimbursementID\" : " + reimbursementID + ","
-				+ "\"requestedByEmp\" :" + requestedByEmp.getEmployeeId() + ","
-				+ "\"amountRequested\" :" + amountRequested + ","
-				+ "\"requestedFor\" :" + "\"" + requestedFor + "\","
-				+ "\"approvalStatus\" :" + "\"" + approvalStatus + "\","
-				+ "\"dateRequested\" :" + "\"" + dateRequested + "\","
-				+ "\"reviewedBy\" :" + reviewedBy.getEmployeeId() + ","
-				+ "\"dateReviewed\" :" + "\"" + dateReviewed + "\""
-				+ "}";
+				+ "\"requestedByEmp\" : " + requestedByEmp.getEmployeeId() + ","
+				+ "\"amountRequested\" : " + amountRequested + ","
+				+ "\"requestedFor\" : \"" + requestedFor + "\","
+				+ "\"approvalStatus\" : \"" + approvalStatus + "\","
+				+ "\"dateRequested\" : \"" + dateRequested + "\","
+				+ "\"reviewedBy\" : " + getReviewerID() + ","
+				+ "\"dateReviewed\" : \"" + dateReviewed + "\""
+				+ "} ";
 	}
-	
+
+	/**
+	 * Small change of getter-method to allow null values when Reimbursement is not yet reviewed.
+	 */
+	private Integer getReviewerID() {
+		if (reviewedBy == null) {
+			return null;
+		}
+		else return reviewedBy.getEmployeeId();
+	}
 	
 	
 	

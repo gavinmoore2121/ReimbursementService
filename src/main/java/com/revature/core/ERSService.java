@@ -82,22 +82,6 @@ public class ERSService {
 		return "invalid password";
 	}
 	
-	/**
-	 * Given a valid user, determine their ranking and open either the 
-	 * employee or manager web page.
-	 * @param user: The Employee representing the current user.
-	 */
-	public void selectEmployeeClassPage(Employee user) {
-		if (user.getClass().equals(Manager.class)) {
-			System.out.println("Displaying Manager webpage.");
-			// Add webpage logic.
-		}
-		else if (user.getClass().equals(Employee.class)) {
-			System.out.println("Displaying Employee webpage.");
-			// Add webpage logic.
-		}
-	}
-	
 	
 	/**
 	 * Create and several sample employees, managers, and reimbursements. For demonstration use only.
@@ -125,8 +109,14 @@ public class ERSService {
 	public List<Employee> getAllEmployees() {
 		return empDao.getAllEntities();
 	}
+	public Employee getEmployee(int empID) {
+		return empDao.getEntity(empID);
+	}
 	public List<Reimbursement> getAllReimbursements() {
 		return reimDao.getAllEntities();
+	}
+	public Reimbursement getReimbursement(int reimID) {
+		return reimDao.getEntity(reimID);
 	}
 	public List<Reimbursement> getAllEmpReimbursements(Employee e) {
 		return reimDao.getAllEmpReimbursements(e);

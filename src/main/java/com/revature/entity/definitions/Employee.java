@@ -104,7 +104,7 @@ public class Employee {
 				+ "\"empYearlySalary\" : " + empYearlySalary + ", "
 				+ "\"empHireDate\" : \"" + empHireDate + "\", "
 				+ "\"employmentClass\" : \"employee\""
-				+ "}";
+				+ "} ";
 	}
 
 

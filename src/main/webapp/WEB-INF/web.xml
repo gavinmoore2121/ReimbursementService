@@ -44,6 +44,23 @@
         <url-pattern>/ManagerHome</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ViewEmployees</servlet-name>
+        <servlet-class>com.revature.servlets.ViewEmployees</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewEmployees</servlet-name>
+        <url-pattern>/ViewEmployees</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ViewReimbursements</servlet-name>
+        <servlet-class>com.revature.servlets.ViewReimbursements</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewReimbursements</servlet-name>
+        <url-pattern>/ViewReimbursements</url-pattern>
+    </servlet-mapping>
+
     
     
 </web-app>
