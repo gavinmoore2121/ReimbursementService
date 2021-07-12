@@ -52,6 +52,7 @@
         <servlet-name>ViewEmployees</servlet-name>
         <url-pattern>/ViewEmployees</url-pattern>
     </servlet-mapping>
+    
     <servlet>
         <servlet-name>ViewReimbursements</servlet-name>
         <servlet-class>com.revature.servlets.ViewReimbursements</servlet-class>
@@ -61,6 +62,23 @@
         <url-pattern>/ViewReimbursements</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CreateReimbursement</servlet-name>
+        <servlet-class>com.revature.servlets.CreateReimbursement</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateReimbursement</servlet-name>
+        <url-pattern>/RequestReimbursement</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReviewReimbursement</servlet-name>
+        <servlet-class>com.revature.servlets.ApproveOrDenyRequest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReviewReimbursement</servlet-name>
+        <url-pattern>/ReviewReimbursement</url-pattern>
+    </servlet-mapping>
     
     
 </web-app>

@@ -107,10 +107,17 @@ public class ERSService {
 	 * Adapter methods from EmployeeDao and ReimbursementDao.
 	 */
 	public List<Employee> getAllEmployees() {
+
 		return empDao.getAllEntities();
 	}
 	public Employee getEmployee(int empID) {
 		return empDao.getEntity(empID);
+	}
+	public Employee getEmployee(String email) {
+		return empDao.getEntity(email);
+	}
+	public void updateEmployee(Employee e) {
+		empDao.update(e);
 	}
 	public List<Reimbursement> getAllReimbursements() {
 		return reimDao.getAllEntities();
@@ -118,6 +125,16 @@ public class ERSService {
 	public Reimbursement getReimbursement(int reimID) {
 		return reimDao.getEntity(reimID);
 	}
+	public void createReimbursement(String username, double amountRequested, String reimReason, String dateRequested) {
+		Employee requester = empDao.getEntity(username);
+		Reimbursement reim = new Reimbursement(reimDao.getAllEntities().size() + 1,
+				requester, amountRequested, reimReason, dateRequested);
+		reimDao.save(reim);
+	}
+	public void updateReimbursement(Reimbursement r) {
+		reimDao.update(r);
+	}
+
 	public List<Reimbursement> getAllEmpReimbursements(Employee e) {
 		return reimDao.getAllEmpReimbursements(e);
 	}
