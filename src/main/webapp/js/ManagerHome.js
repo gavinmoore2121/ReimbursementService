@@ -31,7 +31,7 @@ async function renderReimbursements (event) {
         let row = t.insertRow(-1);
         row.insertCell(-1).appendChild(document.createTextNode(reim['reimbursementID']));
         row.insertCell(-1).appendChild(document.createTextNode(reim['requestedByEmp']));
-        row.insertCell(-1).appendChild(document.createTextNode(reim['amountRequested']));
+        row.insertCell(-1).appendChild(document.createTextNode('$' + reim['amountRequested']));
         row.insertCell(-1).appendChild(document.createTextNode(reim['requestedFor']))
         row.insertCell(-1).appendChild(document.createTextNode(reim['dateRequested']));
         row.insertCell(-1).appendChild(document.createTextNode(reim['approvalStatus']));
@@ -139,7 +139,7 @@ document.querySelector('#view-employees').addEventListener('click', async functi
         row.insertCell(-1).appendChild(document.createTextNode(emp['lastName']));
         row.insertCell(-1).appendChild(document.createTextNode(emp['userName']));
         row.insertCell(-1).appendChild(document.createTextNode(emp['employmentClass']));
-        row.insertCell(-1).appendChild(document.createTextNode(emp['empYearlySalary']));
+        row.insertCell(-1).appendChild(document.createTextNode('$' + emp['empYearlySalary']));
 
     });
 });
@@ -209,7 +209,7 @@ document.querySelector('#view-account').addEventListener('click', async function
         row.insertCell(-1).appendChild(document.createTextNode(emp['lastName']));
         row.insertCell(-1).appendChild(document.createTextNode(emp['userName']));
         row.insertCell(-1).appendChild(document.createTextNode(emp['employmentClass']));
-        row.insertCell(-1).appendChild(document.createTextNode(emp['empYearlySalary']));
+        row.insertCell(-1).appendChild(document.createTextNode('$' + emp['empYearlySalary']));
 
     });
 });
