@@ -26,3 +26,16 @@ To-do
 * Refactor the html webpage for an easier and more pleasant user experience.
 * Add a password-reset system to allow users to request new passwords from managers.
 * Reconfigure the database to contain the salted hashes of user passwords.
+* Refactor database connection details to enable a custom configuration file.
+
+## Getting Started
+1. Clone to desired work directory
+2. For security purposes, Cloud database details are not included in this file. 
+3. Create a hibernate.cfg.xml file with the required parameters for a Hibernate database connection to desired database.
+4. Launch project packaged as war file in TomCat server.
+
+## Usage
+Enter user credentials.
+Employees will be redirected to the employee homepage, Managers will be redirected to the manager homepage.
+Employees can view and edit their profile, and submit reimbursements as desired.
+Managers can view all employees, edit their profiles, and review reimbursements as desired.
